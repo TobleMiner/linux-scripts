@@ -1,3 +1,4 @@
+echo "tagmp3 is deprecated. Use autotag instead"
 for f in *.mp3; do
         artist="$(echo "$f" | \
                 sed "s/\s*-.*$//g")"
