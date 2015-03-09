@@ -14,10 +14,10 @@ for f in *.mp3; do
                         head -n 1 | \
                         sed 's/[,.][0-9]\{1,\}//g')"
                 tmp_base="$(mktemp)"
-                tmp_cover="$tmp_base"".jpg"
+                tmp_cover="$tmp_base".jpg
                 touch "$tmp_cover"
                 ffmpeg -ss $((dur / 2)) -i "$f_vid" -y -t 1 -f image2 "$tmp_cover" 2>/dev/null
-                eyeD3 --force-update --add-image "$tmp_cover"":FRONT_COVER:cover" "$f" >/dev/null
+                eyeD3 --force-update --add-image "$tmp_cover:FRONT_COVER:cover" "$f" >/dev/null
                 rm "$tmp_cover" "$tmp_base"
         fi
 done
